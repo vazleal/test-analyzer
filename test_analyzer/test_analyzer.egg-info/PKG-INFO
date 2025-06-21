@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: test-analyzer
+Version: 0.1.0
+Summary: Ferramenta para analisar práticas de teste em projetos Python
+Author: Matheus Vaz Leal Lima, André Hora Calvancante
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: lizard
+Requires-Dist: coverage
+Requires-Dist: GitPython
+Requires-Dist: PyGithub

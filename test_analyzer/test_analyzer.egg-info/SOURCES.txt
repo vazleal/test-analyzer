@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/analysis.py
+src/cli.py
+src/test_analyzer.egg-info/PKG-INFO
+src/test_analyzer.egg-info/SOURCES.txt
+src/test_analyzer.egg-info/dependency_links.txt
+src/test_analyzer.egg-info/entry_points.txt
+src/test_analyzer.egg-info/requires.txt
+src/test_analyzer.egg-info/top_level.txt

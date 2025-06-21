@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test-analyzer"
+version = "0.1.0"
+description = "Ferramenta para analisar métricas de testes em repositórios Python"
+readme = "README.md"
+authors = [
+  { name = "Matheus Vaz Leal Lima" },
+  { name = "Andre Hora" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = [
+  "GitPython>=3.1.44",
+  "PyGithub>=1.55"
+]
+
+[project.scripts]
+test-analyzer = "test_analyzer.cli:main"
