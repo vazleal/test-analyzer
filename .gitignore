@@ -1,1 +1,3 @@
 **/__pycache__/
+**/test_analyzer.egg-info
+*.json
