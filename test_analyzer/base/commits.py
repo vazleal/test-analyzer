@@ -3,6 +3,7 @@ from github import Github
 from git.objects.blob import Blob
 import datetime
 import os
+from collections import defaultdict
 
 def parse_github_url(url: str):
     """
@@ -146,3 +147,39 @@ def aggregate_stats_yearly(stats: list[dict]) -> list[dict]:
 
     # retorna lista ordenada pelos anos
     return [groups[y] for y in sorted(groups)]
+
+def aggregate_snapshots_monthly(stats):
+    """
+    Recebe uma lista de dicts com 'date', 'prod_files', 'test_files'.
+    Retorna uma lista com o último snapshot de cada mês.
+    """
+    monthly = defaultdict(list)
+    for s in stats:
+        key = (s["date"].year, s["date"].month)
+        monthly[key].append(s)
+    result = []
+    for key, items in monthly.items():
+        # pega o último snapshot do mês
+        last = max(items, key=lambda x: x["date"])
+        result.append(last)
+    # ordena por data
+    result.sort(key=lambda x: x["date"])
+    return result
+
+def aggregate_snapshots_yearly(stats):
+    """
+    Recebe uma lista de dicts com 'date', 'prod_files', 'test_files'.
+    Retorna uma lista com o último snapshot de cada ano.
+    """
+    yearly = defaultdict(list)
+    for s in stats:
+        key = s["date"].year
+        yearly[key].append(s)
+    result = []
+    for key, items in yearly.items():
+        # pega o último snapshot do ano
+        last = max(items, key=lambda x: x["date"])
+        result.append(last)
+    # ordena por data
+    result.sort(key=lambda x: x["date"])
+    return result

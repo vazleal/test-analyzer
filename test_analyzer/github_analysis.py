@@ -46,11 +46,11 @@ def analyze_tests_github(
         if granularity == "monthly":
             commits = aggregate_stats_monthly(raw_commits)
             pr_stats = aggregate_stats_monthly(raw_pr_stats)
-            file_stats = aggregate_stats_monthly(raw_files)
+            file_stats = aggregate_snapshots_monthly(raw_files)
         else:  # yearly
             commits = aggregate_stats_yearly(raw_commits)
             pr_stats = aggregate_stats_yearly(raw_pr_stats)
-            file_stats = aggregate_stats_yearly(raw_files)
+            file_stats = aggregate_snapshots_yearly(raw_files)
 
         commit_stats = [
             {"date": c["date"].isoformat(),

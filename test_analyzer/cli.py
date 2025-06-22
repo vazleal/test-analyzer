@@ -3,6 +3,7 @@ import json
 from .analysis           import analyze_tests_local
 from .github_analysis   import analyze_tests_github
 from .html_report       import HtmlReport
+from .base.clone       import *
 
 def main():
     parser = argparse.ArgumentParser(
@@ -46,5 +47,6 @@ def main():
         print(f"Relatório JSON salvo em {args.output}")
 
     # 3) gera sempre o HTML
-    html_path = HtmlReport(report).generate()
+    repo_name = get_repo_name_from_url(args.target)
+    html_path = HtmlReport(report,  title=repo_name).generate()
     print(f"Relatório HTML salvo em {html_path}")
