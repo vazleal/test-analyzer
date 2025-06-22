@@ -1,14 +1,33 @@
+# test_analyzer/_gitevo_base/clone.py
+
 import tempfile
 import shutil
-from git import Repo
+from git import Repo, GitCommandError
 
-def clone_repo(github_url: str) -> str:
+def clone_repo(github_url: str, branch: str = "main") -> str:
     """
-    Clona o repositório GitHub para um diretório temporário
-    e retorna o path onde foi clonado.
+    Clona o repositório GitHub em um diretório temporário e faz checkout na branch desejada.
+    Se a branch não existir, cai silenciosamente na branch padrão.
+    Retorna o path do diretório clonado.
     """
     tmp_dir = tempfile.mkdtemp()
-    Repo.clone_from(github_url, tmp_dir)
+    try:
+        # Clona sem checkout de submódulos, para ser mais rápido
+        repo = Repo.clone_from(
+            github_url,
+            tmp_dir,
+            multi_options=["--no-single-branch"],  # garante histórico completo
+        )
+        # tenta trocar de branch
+        try:
+            repo.git.checkout(branch)
+        except GitCommandError:
+            # branch não existe: não falha, fica na default (geralmente 'main' ou 'master')
+            pass
+    except Exception:
+        # em caso de erro geral, limpa e propaga
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+        raise
     return tmp_dir
 
 def cleanup_repo(path: str):

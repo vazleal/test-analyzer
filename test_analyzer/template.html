@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div style="width: 100%; max-width: 650px; margin: 0 auto; text-align: center;">
+    <p>Criado em {{CREATED_DATE}}</p>
+    <h1>{{TITLE}}</h1>
+    <div id="chart-wrapper"></div>
+  </div>
+
+  <script id="jsonData" type="application/json">
+    {{JSON_DATA}}
+  </script>
+
+  <script>
+    const data = JSON.parse(
+      document.getElementById('jsonData').textContent
+    );
+    const charts = data.charts || [];
+    const wrapper = document.getElementById('chart-wrapper');
+
+    charts.forEach((cfg, i) => {
+      const h2 = document.createElement('h2');
+      h2.textContent = cfg.title;
+      wrapper.appendChild(h2);
+
+      const canvas = document.createElement('canvas');
+      canvas.id = 'chart-' + i;
+      wrapper.appendChild(canvas);
+
+      new Chart(canvas, {
+        type: cfg.type,
+        data: {
+          labels: cfg.labels,
+          datasets: cfg.datasets
+        },
+        options: {
+          indexAxis: cfg.indexAxis,
+          plugins: {
+            legend: { display: cfg.display_legend },
+            title:  { display: true, text: cfg.title }
+          },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
