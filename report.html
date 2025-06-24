@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gitevo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div style="width: 100%; max-width: 650px; margin: 0 auto; text-align: center;">
+    <p>Criado em 2025-06-23 00:24:38 -0400</p>
+    <h1>gitevo</h1>
+    <div id="chart-wrapper"></div>
+  </div>
+
+  <script id="jsonData" type="application/json">
+    {
+  "num_test_files": 5,
+  "avg_test_file_lines": 169.0,
+  "test_doubles": {
+    "mocks": 0,
+    "spies": 0,
+    "stubs": 0,
+    "fakes": 0,
+    "dummies": 0
+  },
+  "test_types": {
+    "unit": 3,
+    "integration": 0,
+    "e2e": 0,
+    "unknown": 4
+  },
+  "total_prod_functions": 162,
+  "tested_functions": 27,
+  "avg_test_delay_days": 0.0,
+  "test_delay_count": 2,
+  "flaky_tests": {
+    "time_sleep": 0,
+    "random_usage": 0,
+    "datetime_now": 0
+  },
+  "total_commits": 3,
+  "total_prs": 0,
+  "test_smells": {
+    "empty_tests": 2,
+    "no_assert": 2,
+    "unused_setup": 0
+  },
+  "prs_with_test_changes": 0,
+  "total_issues": 2,
+  "commit_stats": [
+    {
+      "date": "2025-03",
+      "code_lines": 4295,
+      "test_lines": 1130,
+      "test_density": 0.2631
+    },
+    {
+      "date": "2025-04",
+      "code_lines": 4749,
+      "test_lines": 512,
+      "test_density": 0.1078
+    },
+    {
+      "date": "2025-05",
+      "code_lines": 13,
+      "test_lines": 0,
+      "test_density": 0.0
+    }
+  ],
+  "pr_stats": [],
+  "file_stats": [
+    {
+      "date": "2025-03",
+      "prod_files": 18,
+      "test_files": 5
+    },
+    {
+      "date": "2025-04",
+      "prod_files": 27,
+      "test_files": 7
+    },
+    {
+      "date": "2025-05",
+      "prod_files": 27,
+      "test_files": 7
+    }
+  ],
+  "charts": [
+    {
+      "title": "Evolução de Commits (LOC)",
+      "type": "line",
+      "indexAxis": "x",
+      "display_legend": true,
+      "labels": [
+        "2025-03",
+        "2025-04",
+        "2025-05"
+      ],
+      "datasets": [
+        {
+          "label": "Código",
+          "data": [
+            4295,
+            4749,
+            13
+          ]
+        },
+        {
+          "label": "Testes",
+          "data": [
+            1130,
+            512,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Evolução de PRs (LOC)",
+      "type": "line",
+      "indexAxis": "x",
+      "display_legend": true,
+      "labels": [],
+      "datasets": [
+        {
+          "label": "Código",
+          "data": []
+        },
+        {
+          "label": "Testes",
+          "data": []
+        }
+      ]
+    },
+    {
+      "title": "Evolução de Arquivos (Produção vs Testes)",
+      "type": "line",
+      "indexAxis": "x",
+      "display_legend": true,
+      "labels": [
+        "2025-03",
+        "2025-04",
+        "2025-05"
+      ],
+      "datasets": [
+        {
+          "label": "Produção",
+          "data": [
+            18,
+            27,
+            27
+          ]
+        },
+        {
+          "label": "Testes",
+          "data": [
+            5,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Densidade de Teste por Commit",
+      "type": "line",
+      "labels": [
+        "2025-03",
+        "2025-04",
+        "2025-05"
+      ],
+      "datasets": [
+        {
+          "label": "Densidade de Teste",
+          "data": [
+            0.2631,
+            0.1078,
+            0.0
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Densidade de Teste por PR",
+      "type": "line",
+      "labels": [],
+      "datasets": [
+        {
+          "label": "Densidade de Teste",
+          "data": [],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Smells de Teste (AST)",
+      "type": "bar",
+      "labels": [
+        "Testes vazios",
+        "Testes sem assert",
+        "Setup/TearDown não usado"
+      ],
+      "datasets": [
+        {
+          "label": "Quantidade de ocorrências",
+          "data": [
+            2,
+            2,
+            0
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Distribuição de Tipos de Testes",
+      "type": "bar",
+      "labels": [
+        "unit",
+        "integration",
+        "e2e",
+        "unknown"
+      ],
+      "datasets": [
+        {
+          "label": "Arquivos de teste",
+          "data": [
+            3,
+            0,
+            0,
+            4
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Funções Produção Testadas vs Não Testadas",
+      "type": "bar",
+      "labels": [
+        "Testadas",
+        "Não testadas"
+      ],
+      "datasets": [
+        {
+          "label": "Quantidade de funções",
+          "data": [
+            27,
+            135
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Tempo Médio até o Primeiro Teste (dias)",
+      "type": "bar",
+      "labels": [
+        "Média delay"
+      ],
+      "datasets": [
+        {
+          "label": "Dias",
+          "data": [
+            0
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Testes Flaky Detectados",
+      "type": "bar",
+      "labels": [
+        "Chamadas a time.sleep()",
+        "Uso de random",
+        "Uso de datetime.now()"
+      ],
+      "datasets": [
+        {
+          "label": "Número de ocorrências",
+          "data": [
+            0,
+            0,
+            0
+          ],
+          "fill": false
+        }
+      ]
+    },
+    {
+      "title": "Uso de Test Doubles",
+      "type": "bar",
+      "labels": [
+        "Mocks",
+        "Stubs",
+        "Fakes",
+        "Spies",
+        "Dummies"
+      ],
+      "datasets": [
+        {
+          "label": "Ocorrências",
+          "data": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "fill": false
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <script>
+    const data = JSON.parse(
+      document.getElementById('jsonData').textContent
+    );
+    const charts = data.charts || [];
+    const wrapper = document.getElementById('chart-wrapper');
+
+    charts.forEach((cfg, i) => {
+      const h2 = document.createElement('h2');
+      h2.textContent = cfg.title;
+      wrapper.appendChild(h2);
+
+      const canvas = document.createElement('canvas');
+      canvas.id = 'chart-' + i;
+      wrapper.appendChild(canvas);
+
+      new Chart(canvas, {
+        type: cfg.type,
+        data: {
+          labels: cfg.labels,
+          datasets: cfg.datasets
+        },
+        options: {
+          indexAxis: cfg.indexAxis,
+          plugins: {
+            legend: { display: cfg.display_legend },
+            title:  { display: true, text: cfg.title }
+          },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
