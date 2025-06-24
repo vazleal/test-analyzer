@@ -3,87 +3,191 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gitevo</title>
+  <title>black</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <div style="width: 100%; max-width: 650px; margin: 0 auto; text-align: center;">
-    <p>Criado em 2025-06-23 00:24:38 -0400</p>
-    <h1>gitevo</h1>
+    <p>Criado em 2025-06-24 19:06:02 -0400</p>
+    <h1>black</h1>
     <div id="chart-wrapper"></div>
   </div>
 
   <script id="jsonData" type="application/json">
     {
-  "num_test_files": 5,
-  "avg_test_file_lines": 169.0,
+  "num_test_files": 10,
+  "avg_test_file_lines": 444.9,
   "test_doubles": {
-    "mocks": 0,
-    "spies": 0,
+    "mocks": 64,
+    "spies": 1,
+    "fakes": 1,
     "stubs": 0,
-    "fakes": 0,
     "dummies": 0
   },
   "test_types": {
-    "unit": 3,
+    "unit": 11,
     "integration": 0,
     "e2e": 0,
-    "unknown": 4
+    "unknown": 212
   },
-  "total_prod_functions": 162,
-  "tested_functions": 27,
-  "avg_test_delay_days": 0.0,
-  "test_delay_count": 2,
+  "total_prod_functions": 524,
+  "tested_functions": 100,
+  "avg_test_delay_days": 550.17,
+  "test_delay_count": 6,
   "flaky_tests": {
-    "time_sleep": 0,
-    "random_usage": 0,
+    "time_sleep": 8,
+    "random_usage": 8,
     "datetime_now": 0
   },
-  "total_commits": 3,
-  "total_prs": 0,
+  "total_commits": 8,
+  "total_prs": 1928,
   "test_smells": {
-    "empty_tests": 2,
-    "no_assert": 2,
-    "unused_setup": 0
+    "empty_tests": 202,
+    "no_assert": 193,
+    "unused_setup": 1
   },
-  "prs_with_test_changes": 0,
-  "total_issues": 2,
+  "prs_with_test_changes": 648,
+  "total_issues": 4628,
   "commit_stats": [
     {
-      "date": "2025-03",
-      "code_lines": 4295,
-      "test_lines": 1130,
-      "test_density": 0.2631
+      "date": "2018",
+      "code_lines": 96980,
+      "test_lines": 13894,
+      "test_density": 0.1433
     },
     {
-      "date": "2025-04",
-      "code_lines": 4749,
-      "test_lines": 512,
-      "test_density": 0.1078
+      "date": "2019",
+      "code_lines": 8986,
+      "test_lines": 2201,
+      "test_density": 0.2449
     },
     {
-      "date": "2025-05",
-      "code_lines": 13,
-      "test_lines": 0,
-      "test_density": 0.0
+      "date": "2020",
+      "code_lines": 25642,
+      "test_lines": 6033,
+      "test_density": 0.2353
+    },
+    {
+      "date": "2021",
+      "code_lines": 17019,
+      "test_lines": 5370,
+      "test_density": 0.3155
+    },
+    {
+      "date": "2022",
+      "code_lines": 5167,
+      "test_lines": 27701,
+      "test_density": 5.3611
+    },
+    {
+      "date": "2023",
+      "code_lines": 5426,
+      "test_lines": 37410,
+      "test_density": 6.8946
+    },
+    {
+      "date": "2024",
+      "code_lines": 3670,
+      "test_lines": 6181,
+      "test_density": 1.6842
+    },
+    {
+      "date": "2025",
+      "code_lines": 1814,
+      "test_lines": 1843,
+      "test_density": 1.016
     }
   ],
-  "pr_stats": [],
+  "pr_stats": [
+    {
+      "date": "2018",
+      "code_lines": 3155,
+      "test_lines": 2105,
+      "test_density": 0.6672
+    },
+    {
+      "date": "2019",
+      "code_lines": 9152,
+      "test_lines": 2368,
+      "test_density": 0.2587
+    },
+    {
+      "date": "2020",
+      "code_lines": 6728,
+      "test_lines": 6610,
+      "test_density": 0.9825
+    },
+    {
+      "date": "2021",
+      "code_lines": 18745,
+      "test_lines": 5969,
+      "test_density": 0.3184
+    },
+    {
+      "date": "2022",
+      "code_lines": 7595,
+      "test_lines": 7962,
+      "test_density": 1.0483
+    },
+    {
+      "date": "2023",
+      "code_lines": 9804,
+      "test_lines": 10212,
+      "test_density": 1.0416
+    },
+    {
+      "date": "2024",
+      "code_lines": 4523,
+      "test_lines": 4063,
+      "test_density": 0.8983
+    },
+    {
+      "date": "2025",
+      "code_lines": 9589,
+      "test_lines": 1492,
+      "test_density": 0.1556
+    }
+  ],
   "file_stats": [
     {
-      "date": "2025-03",
-      "prod_files": 18,
-      "test_files": 5
+      "date": "2018",
+      "prod_files": 23,
+      "test_files": 34
     },
     {
-      "date": "2025-04",
-      "prod_files": 27,
-      "test_files": 7
+      "date": "2019",
+      "prod_files": 23,
+      "test_files": 49
     },
     {
-      "date": "2025-05",
-      "prod_files": 27,
-      "test_files": 7
+      "date": "2020",
+      "prod_files": 28,
+      "test_files": 69
+    },
+    {
+      "date": "2021",
+      "prod_files": 53,
+      "test_files": 103
+    },
+    {
+      "date": "2022",
+      "prod_files": 52,
+      "test_files": 139
+    },
+    {
+      "date": "2023",
+      "prod_files": 57,
+      "test_files": 198
+    },
+    {
+      "date": "2024",
+      "prod_files": 60,
+      "test_files": 229
+    },
+    {
+      "date": "2025",
+      "prod_files": 60,
+      "test_files": 234
     }
   ],
   "charts": [
@@ -93,25 +197,40 @@
       "indexAxis": "x",
       "display_legend": true,
       "labels": [
-        "2025-03",
-        "2025-04",
-        "2025-05"
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
       ],
       "datasets": [
         {
           "label": "Código",
           "data": [
-            4295,
-            4749,
-            13
+            96980,
+            8986,
+            25642,
+            17019,
+            5167,
+            5426,
+            3670,
+            1814
           ]
         },
         {
           "label": "Testes",
           "data": [
-            1130,
-            512,
-            0
+            13894,
+            2201,
+            6033,
+            5370,
+            27701,
+            37410,
+            6181,
+            1843
           ]
         }
       ]
@@ -121,15 +240,42 @@
       "type": "line",
       "indexAxis": "x",
       "display_legend": true,
-      "labels": [],
+      "labels": [
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
       "datasets": [
         {
           "label": "Código",
-          "data": []
+          "data": [
+            3155,
+            9152,
+            6728,
+            18745,
+            7595,
+            9804,
+            4523,
+            9589
+          ]
         },
         {
           "label": "Testes",
-          "data": []
+          "data": [
+            2105,
+            2368,
+            6610,
+            5969,
+            7962,
+            10212,
+            4063,
+            1492
+          ]
         }
       ]
     },
@@ -139,25 +285,40 @@
       "indexAxis": "x",
       "display_legend": true,
       "labels": [
-        "2025-03",
-        "2025-04",
-        "2025-05"
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
       ],
       "datasets": [
         {
           "label": "Produção",
           "data": [
-            18,
-            27,
-            27
+            23,
+            23,
+            28,
+            53,
+            52,
+            57,
+            60,
+            60
           ]
         },
         {
           "label": "Testes",
           "data": [
-            5,
-            7,
-            7
+            34,
+            49,
+            69,
+            103,
+            139,
+            198,
+            229,
+            234
           ]
         }
       ]
@@ -166,17 +327,27 @@
       "title": "Densidade de Teste por Commit",
       "type": "line",
       "labels": [
-        "2025-03",
-        "2025-04",
-        "2025-05"
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
       ],
       "datasets": [
         {
           "label": "Densidade de Teste",
           "data": [
-            0.2631,
-            0.1078,
-            0.0
+            0.1433,
+            0.2449,
+            0.2353,
+            0.3155,
+            5.3611,
+            6.8946,
+            1.6842,
+            1.016
           ],
           "fill": false
         }
@@ -185,11 +356,29 @@
     {
       "title": "Densidade de Teste por PR",
       "type": "line",
-      "labels": [],
+      "labels": [
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
       "datasets": [
         {
           "label": "Densidade de Teste",
-          "data": [],
+          "data": [
+            0.6672,
+            0.2587,
+            0.9825,
+            0.3184,
+            1.0483,
+            1.0416,
+            0.8983,
+            0.1556
+          ],
           "fill": false
         }
       ]
@@ -206,9 +395,9 @@
         {
           "label": "Quantidade de ocorrências",
           "data": [
-            2,
-            2,
-            0
+            202,
+            193,
+            1
           ],
           "fill": false
         }
@@ -227,10 +416,10 @@
         {
           "label": "Arquivos de teste",
           "data": [
-            3,
+            11,
             0,
             0,
-            4
+            212
           ],
           "fill": false
         }
@@ -247,8 +436,8 @@
         {
           "label": "Quantidade de funções",
           "data": [
-            27,
-            135
+            100,
+            424
           ],
           "fill": false
         }
@@ -264,7 +453,7 @@
         {
           "label": "Dias",
           "data": [
-            0
+            550.17
           ],
           "fill": false
         }
@@ -282,8 +471,8 @@
         {
           "label": "Número de ocorrências",
           "data": [
-            0,
-            0,
+            8,
+            8,
             0
           ],
           "fill": false
@@ -304,10 +493,10 @@
         {
           "label": "Ocorrências",
           "data": [
+            64,
             0,
-            0,
-            0,
-            0,
+            1,
+            1,
             0
           ],
           "fill": false
