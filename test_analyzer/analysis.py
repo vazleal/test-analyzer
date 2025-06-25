@@ -1,25 +1,30 @@
 import os
 
-def analyze_tests_local(path: str) -> dict:
+def analyze_tests_local(path: str):
     """
     Analisa um repositório local em Python:
-    - conta arquivos test_*.py
+    - conta arquivos de teste (test_*.py)
     - calcula média de linhas por arquivo de teste
     """
     test_files = []
     for root, _, files in os.walk(path):
-        for f in files:
-            if f.startswith("test_") and f.endswith(".py"):
-                test_files.append(os.path.join(root, f))
+        for filename in files:
+            if filename.startswith("test_") and filename.endswith(".py"):
+                test_files.append(os.path.join(root, filename))
 
-    total = len(test_files)
-    avg_lines = 0
-    for tf in test_files:
-        with open(tf, 'r', encoding='utf-8') as fp:
-            avg_lines += sum(1 for _ in fp)
-    avg_lines = round(avg_lines / total, 1) if total else 0
+    total_files = len(test_files)
+    total_lines = 0
+    for file_path in test_files:
+        try:
+            with open(file_path, "r", encoding="utf-8") as file_handler:
+                total_lines += sum(1 for _ in file_handler)
+        except (OSError, UnicodeDecodeError):
+            print(f"Aviso: não foi possível ler {filepath}: {e}")
+            continue
+
+    avg_lines = round(total_lines / total_files, 1) if total_files else 0.0
 
     return {
-        "num_test_files": total,
+        "num_test_files": total_files,
         "avg_test_file_lines": avg_lines,
     }

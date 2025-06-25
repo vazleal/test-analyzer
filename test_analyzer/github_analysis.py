@@ -9,41 +9,41 @@ def analyze_tests_github(
     token: str = None,
     branch: str = "main",
     granularity: str = "yearly"
-) -> dict:
+):
     path = clone_repo(github_url, branch)
     try:
-        local_metrics    = analyze_tests_local(path)
+        local_metrics = analyze_tests_local(path)
 
-        raw_commits      = commit_diff_stats(path)
-        raw_file_stats   = file_count_stats(path)
-        prs, issues      = fetch_prs_and_issues(github_url, token)
-        raw_pr_stats     = pr_diff_stats(prs)
+        raw_commits = commit_diff_stats(path)
+        raw_file_stats = file_count_stats(path)
+        prs, issues = fetch_prs_and_issues(github_url, token)
+        raw_pr_stats = pr_diff_stats(prs)
         
         test_smells = count_test_smells(path)
-        test_types     = classify_test_types(path)
-        func_metrics   = count_functions_tested(path)
-        delay_metrics  = compute_test_delay(path)
-        flaky_metrics  = detect_flaky_tests(path)
+        test_types = classify_test_types(path)
+        func_metrics = count_functions_tested(path)
+        delay_metrics = compute_test_delay(path)
+        flaky_metrics = detect_flaky_tests(path)
         doubles_metrics = detect_test_doubles(path)
         
         num_prs_with_test_changes = count_prs_with_test_changes(prs)
 
         # aplica agregação conforme granularidade
         if granularity == "monthly":
-            commits         = aggregate_stats_monthly(raw_commits)
-            pr_aggregated   = aggregate_stats_monthly(raw_pr_stats)
-            file_snapshots  = aggregate_snapshots_monthly(raw_file_stats)
+            commits = aggregate_stats_monthly(raw_commits)
+            pr_aggregated = aggregate_stats_monthly(raw_pr_stats)
+            file_snapshots = aggregate_snapshots_monthly(raw_file_stats)
         else:  # yearly
-            commits         = aggregate_stats_yearly(raw_commits)
-            pr_aggregated   = aggregate_stats_yearly(raw_pr_stats)
-            file_snapshots  = aggregate_snapshots_yearly(raw_file_stats)
+            commits = aggregate_stats_yearly(raw_commits)
+            pr_aggregated = aggregate_stats_yearly(raw_pr_stats)
+            file_snapshots = aggregate_snapshots_yearly(raw_file_stats)
 
         # formata saída usando 'date' para compatibilidade com HtmlReport
         commit_stats = [
             {
-                "date":        entry["period"],
-                "code_lines":  entry.get("code_lines", 0),
-                "test_lines":  entry.get("test_lines", 0),
+                "date": entry["period"],
+                "code_lines": entry.get("code_lines", 0),
+                "test_lines": entry.get("test_lines", 0),
                 "test_density": round(
                     entry.get("test_lines", 0)
                     / max(entry.get("code_lines", 1), 1)
@@ -54,9 +54,9 @@ def analyze_tests_github(
 
         pr_stats = [
             {
-                "date":        entry["period"],
-                "code_lines":  entry.get("code_lines", 0),
-                "test_lines":  entry.get("test_lines", 0),
+                "date": entry["period"],
+                "code_lines": entry.get("code_lines", 0),
+                "test_lines": entry.get("test_lines", 0),
                 "test_density": round(
                     entry.get("test_lines", 0)
                     / max(entry.get("code_lines", 1), 1)
@@ -67,9 +67,9 @@ def analyze_tests_github(
 
         file_stats = [
             {
-                "date":        entry["period"],
-                "prod_files":  entry.get("prod_files", 0),
-                "test_files":  entry.get("test_files", 0)
+                "date": entry["period"],
+                "prod_files": entry.get("prod_files", 0),
+                "test_files": entry.get("test_files", 0)
             }
             for entry in file_snapshots
         ]

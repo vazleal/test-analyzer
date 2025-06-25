@@ -45,7 +45,7 @@ test-analyzer TARGET [opções]
 
 ```bash
 test-analyzer /caminho/para/meu_projeto
-# → Relatório HTML salvo em ./meu_projeto_test_report.html
+# Relatório HTML salvo em ./meu_projeto_test_report.html
 ```
 
 ### 2. Analisar um repositório público no GitHub
